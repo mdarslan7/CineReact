@@ -25,11 +25,17 @@ const App = () => {
       <h1>CineReact</h1>
 
       <div className="search">
-        <input
-          placeholder="Search for movies"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
+      <input
+        placeholder="Search for movies"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            searchMovies(searchTerm);
+          }
+        }}
+      />
+
       <img
         src={searchIcon}
         alt="search"
